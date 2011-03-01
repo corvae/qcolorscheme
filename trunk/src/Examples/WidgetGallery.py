@@ -21,6 +21,9 @@ class WidgetGallery( QMainWindow ):
         # Load widgetGallery ui file
         uic.loadUi( os.path.split( __file__ )[0] + "\UI\widgetGallery.ui", self )
         
+        # Connect disable checkbox
+        self.disableWidgets.toggled.connect(self.mainWidget.setDisabled)
+        
         # Connect spread sliders to the scheme spread
         self.spreadSlider.sliderMoved.connect(self.spreadSliderChange)
         
@@ -48,27 +51,29 @@ class WidgetGallery( QMainWindow ):
         """Slot function to update spread when the slider is changed
         """
         self.ColorScheme.spread = self.spreadSlider.value()/1000.0
-        self.ColorScheme.generateColors()
+        self.ColorScheme.generateScheme()
         
     def slotBaseColor(self):
         """Slot function to update the basecolor if the color has been changed
         """
         self.ColorScheme.baseColor=QColorDialog.getColor(self.ColorScheme.baseColor, self, "ColorDialog")
-        self.ColorScheme.generateColors()
+        self.ColorScheme.generateScheme()
         self.setBackgroundColor(self.chipBaseColor, self.ColorScheme.baseColor)        
 
     def slotHighlightColor(self):
         """Slot function to update the highlightcolor if the color has been changed
         """        
         self.ColorScheme.highlightColor=QColorDialog.getColor(self.ColorScheme.highlightColor, self, "ColorDialog")
-        self.ColorScheme.generateColors()        
+        self.ColorScheme.generateScheme()        
         self.setBackgroundColor(self.chipHighlightColor, self.ColorScheme.highlightColor)
                   
 
 # Create application instance
 app = QApplication(sys.argv)
+
 # Create mainwindow
 widgetGallery = WidgetGallery()
 widgetGallery.show()
+
 # Enter application loop
 sys.exit(app.exec_()) 
