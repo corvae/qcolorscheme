@@ -22,7 +22,7 @@ class QColorScheme():
         self.baseColor = baseColor
         self.highlightColor = highlightColor
         self.spread = spread
-        self.generateColors()
+        self.generateScheme()
         QApplication.setStyle("Plastique")
     
     def __lightness(self, color):
@@ -33,7 +33,7 @@ class QColorScheme():
         hsv = color.toHsv()
         return hsv.valueF()
     
-    def generateColors(self, apply=True):
+    def generateScheme(self, apply=True):
         """Generate color palette
         By default the generated palette is also applied to the whole application
         To override supply the apply=False argument
@@ -93,9 +93,9 @@ class QColorScheme():
         self.highlightColor = self.colorFromStringTuple(scheme.get("AutoColors", "highlightColor").split(","))
         self.spread = float(scheme.get("AutoColors", "spread"))
         if apply:
-            self.generateColors()
+            self.generateScheme()
         else:
-            self.generateColors(apply=False)
+            self.generateScheme(apply=False)
     
     def loadScheme(self, file):
         """TODO: Implement
