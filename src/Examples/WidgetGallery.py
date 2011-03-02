@@ -39,6 +39,8 @@ class WidgetGallery( QMainWindow ):
         self.spreadSlider.setValue(self.ColorScheme.spread*1000)
         self.setBackgroundColor(self.chipBaseColor, self.ColorScheme.baseColor)
         self.setBackgroundColor(self.chipHighlightColor, self.ColorScheme.highlightColor)
+        
+        #self.ColorScheme.setColor(self.mainWidget, Group=None, Role="Window", Color=QColor(255,0,0))
     
     def setBackgroundColor(self, widget, color):
         """Helper function to set the background on the color chips

@@ -1,9 +1,11 @@
 """Classdocs
 """
+import PySideImporter
+
 import ConfigParser
 from PyQt4.QtCore import  SIGNAL
 from PyQt4.QtGui import QColor, QPalette, QApplication, QMainWindow, QBrush
-import PyQt4.uic
+#import PyQt4.uic
 
 class QColorScheme():
     """Class to ease custom colors of PyQt apps
