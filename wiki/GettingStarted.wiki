@@ -17,3 +17,6 @@ To override the default colors you can either supply colors and spread value as 
 Alternatively you can also create the instance passing the "apply=False" argument to prevent automatic styling of the application and use QColorScheme.apply(widget) to apply the scheme only to selected widgets (and all subwidgets).
 
 More Details to follow and in the inline documentation
+
+http://www.leviathan-entertainment.de/wp-content/uploads/nukeScheme.jpg
+http://www.leviathan-entertainment.de/wp-content/uploads/brightScheme.jpg
